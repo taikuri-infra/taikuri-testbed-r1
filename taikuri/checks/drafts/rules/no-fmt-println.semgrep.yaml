@@ -1,0 +1,6 @@
+rules:
+  - id: no-fmt-println
+    pattern: fmt.Println(...)
+    message: Use a structured logger instead of printing to stdout with fmt.Println.
+    languages: [go]
+    severity: ERROR

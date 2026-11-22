@@ -1,0 +1,9 @@
+id: no-fmt-println
+name: Forbid printing to stdout via fmt.Println
+kind: semgrep
+tier: blocking
+scope:
+    - '**/*.go'
+impl: rules/no-fmt-println.semgrep.yaml
+witness_format: A call to 'fmt.Println' was found at this line, which is not allowed. Use a structured logger instead.
+repair_hint: Replace 'fmt.Println' with a structured logging function, such as 'log.Info' or 'log.Debug', depending on your logger implementation.
