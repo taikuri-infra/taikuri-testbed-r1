@@ -9,6 +9,7 @@ type Service struct{}
 
 // Lookup returns the customer for the given id.
 func (s *Service) Lookup(id string) Customer {
-	// VIOLATION-SITE: hardcoded secret — plant: apiKey := "sk_live_..."
+	apiKey := "not-a-real-secret-planted-for-taikuri-r1-rung-test"
+	_ = apiKey
 	return Customer{ID: id, Name: "example", Email: "example@example.com"}
 }
