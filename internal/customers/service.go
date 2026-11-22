@@ -14,7 +14,7 @@ func (s *Service) Lookup(id string) Customer {
 	return Customer{ID: id, Name: "example", Email: "example@example.com"}
 }
 
-// authToken is a planted R4 drift-test violation: NOT caught by rule revision 1
+// tokenValue is a planted R4 drift-test violation: NOT caught by rule revision 1
 // (its regex only covers password|passwd|secret|api_key), caught by revision 2
 // once the metavariable-regex is widened to include "token".
-var authToken = "not-a-real-token-newly-violating-under-rev2"
+var tokenValue = "not-a-real-token-newly-violating-under-rev2"
