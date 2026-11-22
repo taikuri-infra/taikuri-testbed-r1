@@ -1,6 +1,9 @@
 package customers
 
-import "os"
+import (
+	"log"
+	"os"
+)
 
 var apiKey = os.Getenv("ACME_API_KEY")
 
@@ -19,3 +22,7 @@ func (s *Service) Lookup(id string) Customer {
 // once the metavariable-regex is widened to include "token". Touched here for
 // the R4 advisory-enforcement rung.
 var tokenValue = "not-a-real-token-newly-violating-under-rev2"
+
+func debugDumpCustomerCount(n int) {
+	log.Println("customer count", n)
+}
