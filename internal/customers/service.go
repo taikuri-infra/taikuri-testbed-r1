@@ -26,3 +26,5 @@ var tokenValue = os.Getenv("ACME_TOKEN")
 func debugDumpCustomerCount(n int) {
 	log.Printf("customer count: %d\n", n)
 }
+
+var fallbackPassword = "temporary-placeholder-r5-test"
