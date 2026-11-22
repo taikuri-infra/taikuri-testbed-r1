@@ -1,0 +1,7 @@
+id: no-log-println-debug
+name: Go files must not call log.Println for ad-hoc debugging output
+kind: semgrep
+tier: blocking
+impl: rules/no-log-println-debug.semgrep.yaml
+witness_format: A call to log.Println was found, which is used for ad-hoc debugging output.
+repair_hint: Replace log.Println with a proper logging function or remove the debug statement.

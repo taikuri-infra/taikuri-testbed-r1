@@ -1,0 +1,6 @@
+rules:
+  - id: no-log-println-debug
+    pattern: log.Println(...)
+    message: Use of log.Println for ad-hoc debugging output is not allowed.
+    languages: [go]
+    severity: ERROR
