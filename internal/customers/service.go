@@ -1,6 +1,9 @@
 package customers
 
-import "os"
+import (
+	"log"
+	"os"
+)
 
 var apiKey = os.Getenv("ACME_API_KEY")
 
@@ -9,7 +12,7 @@ type Service struct{}
 
 // Lookup returns the customer for the given id.
 func (s *Service) Lookup(id string) Customer {
-	secretValue := "not-a-real-secret-preexisting-on-main-for-drift-test"
+	secretValue := os.Getenv("ACME_SECRET")
 	_ = secretValue
 	return Customer{ID: id, Name: "example", Email: "example@example.com"}
 }
@@ -18,4 +21,8 @@ func (s *Service) Lookup(id string) Customer {
 // (its regex only covers password|passwd|secret|api_key), caught by revision 2
 // once the metavariable-regex is widened to include "token". Touched here for
 // the R4 advisory-enforcement rung.
-var tokenValue = "not-a-real-token-newly-violating-under-rev2"
+var tokenValue = os.Getenv("ACME_TOKEN")
+
+func debugDumpCustomerCount(n int) {
+	log.Printf("customer count: %d\n", n)
+}
